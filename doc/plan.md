@@ -10,7 +10,7 @@
 - [x] Create API endpoint for adding items
 - [x] Create API endpoint for updating items
 - [x] Create API endpoint for deleting items
-- [ ] Add basic UI components (layout, header)
+- [x] Add basic UI components (layout, header)
 - [ ] Create shopping list item component
 - [ ] Implement items list view
 - [ ] Add form for new items
