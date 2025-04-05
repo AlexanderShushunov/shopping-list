@@ -7,7 +7,7 @@
 
 ## Basic Features
 - [x] Create API endpoint for fetching items
-- [ ] Create API endpoint for adding items
+- [x] Create API endpoint for adding items
 - [ ] Create API endpoint for updating items
 - [ ] Create API endpoint for deleting items
 - [ ] Add basic UI components (layout, header)
