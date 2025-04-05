@@ -1,17 +1,10 @@
 import { NextResponse } from 'next/server'
-import clientPromise from '@/lib/mongodb'
-import { Collection } from 'mongodb'
 import { Item } from '@/types/item'
-
-async function getCollection(): Promise<Collection<Item>> {
-  const client = await clientPromise
-  const db = client.db('ShoppingList')
-  return db.collection<Item>('Items')
-}
+import { getItemCollection } from '@/lib/db'
 
 export async function GET() {
   try {
-    const collection = await getCollection()
+    const collection = await getItemCollection()
     const items = await collection.find({}).toArray()
     
     return NextResponse.json(items)
@@ -44,7 +37,7 @@ export async function POST(request: Request) {
       updatedAt: new Date()
     }
 
-    const collection = await getCollection()
+    const collection = await getItemCollection()
     const result = await collection.insertOne(newItem as Item)
 
     return NextResponse.json(

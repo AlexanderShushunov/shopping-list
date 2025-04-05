@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import clientPromise from '@/lib/mongodb'
 import { ObjectId } from 'mongodb'
 import { Item } from '@/types/item'
+import { getItemCollection } from '@/lib/db'
 
 export async function PUT(
   request: Request,
@@ -26,8 +26,7 @@ export async function PUT(
       )
     }
 
-    const client = await clientPromise
-    const collection = client.db('ShoppingList').collection<Item>('Items')
+    const collection = await getItemCollection()
 
     const updateData: Partial<Item> = {
       name,
