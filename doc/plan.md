@@ -6,7 +6,7 @@
 - [x] Add MongoDB schema for shopping list items
 
 ## Basic Features
-- [ ] Create API endpoint for fetching items
+- [x] Create API endpoint for fetching items
 - [ ] Create API endpoint for adding items
 - [ ] Create API endpoint for updating items
 - [ ] Create API endpoint for deleting items
