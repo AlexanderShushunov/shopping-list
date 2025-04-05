@@ -1,9 +1,9 @@
 # Shopping List Application Plan
 
 ## Setup and Infrastructure
-- [ ] Set up MongoDB connection utility
-- [ ] Create environment variables configuration
-- [ ] Add MongoDB schema for shopping list items
+- [x] Set up MongoDB connection utility
+- [x] Create environment variables configuration
+- [x] Add MongoDB schema for shopping list items
 
 ## Basic Features
 - [ ] Create API endpoint for fetching items
