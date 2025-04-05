@@ -62,4 +62,37 @@ export async function PUT(
       { status: 500 }
     )
   }
+}
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const id = params.id
+    if (!ObjectId.isValid(id)) {
+      return NextResponse.json(
+        { error: 'Invalid item ID' },
+        { status: 400 }
+      )
+    }
+
+    const collection = await getItemCollection()
+    const result = await collection.findOneAndDelete({ _id: new ObjectId(id) })
+
+    if (!result) {
+      return NextResponse.json(
+        { error: 'Item not found' },
+        { status: 404 }
+      )
+    }
+
+    return NextResponse.json(result, { status: 200 })
+  } catch (error) {
+    console.error('Failed to delete item:', error)
+    return NextResponse.json(
+      { error: 'Failed to delete item' },
+      { status: 500 }
+    )
+  }
 } 
