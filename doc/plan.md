@@ -11,8 +11,8 @@
 - [x] Create API endpoint for updating items
 - [x] Create API endpoint for deleting items
 - [x] Add basic UI components (layout, header)
-- [ ] Create shopping list item component
-- [ ] Implement items list view
+- [x] Create shopping list item component
+- [x] Implement items list view
 - [ ] Add form for new items
 - [ ] Add edit/delete functionality
 

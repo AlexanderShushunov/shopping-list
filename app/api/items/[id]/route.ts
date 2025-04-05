@@ -38,7 +38,9 @@ export async function PUT(
     // Remove undefined fields
     Object.keys(updateData).forEach(key => {
       const typedKey = key as keyof Item
-      updateData[typedKey] === undefined && delete updateData[typedKey]
+      if (updateData[typedKey] === undefined) {
+        delete updateData[typedKey]
+      }
     })
 
     const result = await collection.findOneAndUpdate(

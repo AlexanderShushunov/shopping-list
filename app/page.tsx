@@ -1,7 +1,9 @@
+import ShoppingList from './components/ShoppingList'
+
 export default function Home() {
   return (
-    <main>
-      Hello
-    </main>
+    <div>
+      <ShoppingList />
+    </div>
   )
 }
