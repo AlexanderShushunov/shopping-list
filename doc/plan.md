@@ -17,10 +17,11 @@
 - [x] Add edit/delete functionality
 
 ## Authentication
-- [ ] Add user authentication (for you and your wife)
+- [x] Add user authentication (for you and your wife)
+- [x] Add login page
+- [x] Connect authentication with MongoDB
 - [ ] Protect API routes
-- [ ] Add login page
-- [ ] Connect authentication with MongoDB
+
 
 ## Enhanced Features
 - [ ] Add categories for items
