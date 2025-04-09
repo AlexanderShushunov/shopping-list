@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- The project plan is located in doc/plan.md. Any reference to "plan" should be interpreted as this file.
+- When a point from the plan is completed, mark it as done.
+After marking, commit the change using the exact text of the completed point as the commit message.
