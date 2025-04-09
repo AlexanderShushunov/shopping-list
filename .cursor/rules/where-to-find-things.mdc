@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- The project plan is located in doc/plan.md. Any reference to "plan" should be interpreted as this file.
