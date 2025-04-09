@@ -1,10 +1,12 @@
 'use client'
 
+import { FC, useEffect } from 'react'
 import { Item } from '@/types/item'
 import { useItemsApi } from '@/services/itemsApi'
-import ShoppingListItem from './ShoppingListItem'
+import { ShoppingListItem } from './ShoppingListItem'
 import { toast } from 'react-hot-toast'
-import { useEffect } from 'react'
+import { AddItemForm } from './AddItemForm'
+import { LoadingIndicator } from './LoadingIndicator'
 
 type MessageProps = {
   children: React.ReactNode;
@@ -17,8 +19,8 @@ const Message = ({ children, className = 'text-gray-500' }: MessageProps) => (
   </div>
 )
 
-export default function ShoppingList() {
-  const { items, isLoading, error, updateItem, deleteItem } = useItemsApi()
+export const ShoppingList: FC = () => {
+  const { items, isLoading, error, createItem, updateItem, deleteItem } = useItemsApi()
 
   useEffect(() => {
     if (error) {
@@ -26,24 +28,22 @@ export default function ShoppingList() {
     }
   }, [error])
 
-  if (isLoading) {
-    return <Message>Loading items...</Message>
-  }
-
-  if (items.length === 0) {
-    return <Message>No items in the list</Message>
-  }
-
   return (
     <div className="space-y-4">
-      {items.map((item: Item) => (
-        <ShoppingListItem
-          key={item._id?.toString()}
-          item={item}
-          onUpdate={updateItem}
-          onDelete={deleteItem}
-        />
-      ))}
+      <LoadingIndicator isLoading={isLoading} />
+      <AddItemForm onCreateItem={createItem} />
+      {items.length === 0 ? (
+        <Message>No items in the list</Message>
+      ) : (
+        items.map((item: Item) => (
+          <ShoppingListItem
+            key={item._id?.toString()}
+            item={item}
+            onUpdate={updateItem}
+            onDelete={deleteItem}
+          />
+        ))
+      )}
     </div>
   )
 } 

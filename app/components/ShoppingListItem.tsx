@@ -1,15 +1,15 @@
 'use client'
 
+import { FC, useState } from 'react'
 import { Item } from '@/types/item'
-import { useState } from 'react'
 
-interface ShoppingListItemProps {
+type ShoppingListItemProps = {
   item: Item
   onUpdate: (id: string, updates: Partial<Item>) => Promise<Item | null>
   onDelete: (id: string) => Promise<void>
 }
 
-export default function ShoppingListItem({ item, onUpdate, onDelete }: ShoppingListItemProps) {
+export const ShoppingListItem: FC<ShoppingListItemProps> = ({ item, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [name, setName] = useState(item.name)
   const [quantity, setQuantity] = useState(item.quantity)

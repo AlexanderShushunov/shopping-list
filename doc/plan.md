@@ -13,8 +13,8 @@
 - [x] Add basic UI components (layout, header)
 - [x] Create shopping list item component
 - [x] Implement items list view
-- [ ] Add form for new items
-- [ ] Add edit/delete functionality
+- [x] Add form for new items
+- [x] Add edit/delete functionality
 
 ## Authentication
 - [ ] Add user authentication (for you and your wife)
