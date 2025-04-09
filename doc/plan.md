@@ -20,7 +20,7 @@
 - [x] Add user authentication (for you and your wife)
 - [x] Add login page
 - [x] Connect authentication with MongoDB
-- [ ] Protect API routes
+- [x] Protect API routes
 
 
 ## Enhanced Features

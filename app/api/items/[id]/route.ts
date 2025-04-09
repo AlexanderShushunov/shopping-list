@@ -1,13 +1,21 @@
 import { NextResponse } from 'next/server'
+import { getServerSession } from 'next-auth'
 import { ObjectId } from 'mongodb'
 import { Item } from '@/types/item'
 import { getItemCollection } from '@/lib/db'
+import { authOptions } from '@/lib/auth'
 
 export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
+    const session = await getServerSession(authOptions)
+    console.log(session);
+    if (!session?.user?.email) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
     const id = params.id
     if (!ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -71,6 +79,11 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    const session = await getServerSession(authOptions)
+    if (!session?.user?.email) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
     const id = params.id
     if (!ObjectId.isValid(id)) {
       return NextResponse.json(
