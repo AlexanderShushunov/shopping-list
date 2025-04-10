@@ -11,7 +11,7 @@ export async function PUT(
 ) {
   try {
     const session = await getServerSession(authOptions)
-    console.log(session);
+
     if (!session?.user?.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
