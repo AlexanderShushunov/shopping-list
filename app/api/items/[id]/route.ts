@@ -16,7 +16,7 @@ export async function PUT(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const id = params.id
+    const { id } = await params
     if (!ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: 'Invalid item ID' },
@@ -84,7 +84,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const id = params.id
+    const { id } = await params
     if (!ObjectId.isValid(id)) {
       return NextResponse.json(
         { error: 'Invalid item ID' },
