@@ -5,10 +5,7 @@ import { Item } from '@/types/item'
 import { getItemCollection } from '@/lib/db'
 import { authOptions } from '@/lib/auth'
 
-export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession(authOptions)
 
@@ -18,20 +15,14 @@ export async function PUT(
 
     const { id } = await params
     if (!ObjectId.isValid(id)) {
-      return NextResponse.json(
-        { error: 'Invalid item ID' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Invalid item ID' }, { status: 400 })
     }
 
     const body = await request.json()
     const { name, quantity, bought } = body
 
     if (!name) {
-      return NextResponse.json(
-        { error: 'Name is required' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Name is required' }, { status: 400 })
     }
 
     const collection = await getItemCollection()
@@ -40,11 +31,11 @@ export async function PUT(
       name,
       quantity,
       bought,
-      updatedAt: new Date()
+      updatedAt: new Date(),
     }
 
     // Remove undefined fields
-    Object.keys(updateData).forEach(key => {
+    Object.keys(updateData).forEach((key) => {
       const typedKey = key as keyof Item
       if (updateData[typedKey] === undefined) {
         delete updateData[typedKey]
@@ -58,26 +49,17 @@ export async function PUT(
     )
 
     if (!result) {
-      return NextResponse.json(
-        { error: 'Item not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Item not found' }, { status: 404 })
     }
 
     return NextResponse.json(result)
   } catch (error) {
     console.error('Failed to update item:', error)
-    return NextResponse.json(
-      { error: 'Failed to update item' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to update item' }, { status: 500 })
   }
 }
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.email) {
@@ -86,28 +68,19 @@ export async function DELETE(
 
     const { id } = await params
     if (!ObjectId.isValid(id)) {
-      return NextResponse.json(
-        { error: 'Invalid item ID' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Invalid item ID' }, { status: 400 })
     }
 
     const collection = await getItemCollection()
     const result = await collection.findOneAndDelete({ _id: new ObjectId(id) })
 
     if (!result) {
-      return NextResponse.json(
-        { error: 'Item not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Item not found' }, { status: 404 })
     }
 
     return NextResponse.json(result, { status: 200 })
   } catch (error) {
     console.error('Failed to delete item:', error)
-    return NextResponse.json(
-      { error: 'Failed to delete item' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to delete item' }, { status: 500 })
   }
-} 
+}

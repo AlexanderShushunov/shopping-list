@@ -21,4 +21,4 @@ declare module 'next-auth/jwt' {
     id: string
     email: string
   }
-} 
+}

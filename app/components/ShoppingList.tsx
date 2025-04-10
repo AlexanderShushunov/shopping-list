@@ -9,12 +9,12 @@ import { AddItemForm } from './AddItemForm'
 import { LoadingIndicator } from './LoadingIndicator'
 
 type MessageProps = {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }
 
 const Message = ({ children, className = 'text-gray-500' }: MessageProps) => (
-  <div className="flex justify-center items-center h-32">
+  <div className="flex h-32 items-center justify-center">
     <div className={className}>{children}</div>
   </div>
 )
@@ -46,4 +46,4 @@ export const ShoppingList: FC = () => {
       )}
     </div>
   )
-} 
+}

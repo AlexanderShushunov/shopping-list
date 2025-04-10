@@ -7,4 +7,4 @@ export interface Item {
   bought: boolean
   createdAt: Date
   updatedAt: Date
-} 
+}

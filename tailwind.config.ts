@@ -11,21 +11,21 @@ const config: Config = {
       keyframes: {
         'gradient-x': {
           '0%': {
-            'background-position': '0% 50%'
+            'background-position': '0% 50%',
           },
           '50%': {
-            'background-position': '100% 50%'
+            'background-position': '100% 50%',
           },
           '100%': {
-            'background-position': '0% 50%'
-          }
-        }
+            'background-position': '0% 50%',
+          },
+        },
       },
       animation: {
-        'gradient-x': 'gradient-x 0.5s linear infinite'
-      }
+        'gradient-x': 'gradient-x 0.5s linear infinite',
+      },
     },
   },
   plugins: [],
 }
-export default config 
+export default config

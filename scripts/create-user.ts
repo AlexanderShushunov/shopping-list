@@ -24,11 +24,11 @@ async function createUser(email: string) {
 
   // Generate a strong password (16 characters with mixed case, numbers, and symbols)
   const password = randomBytes(8).toString('hex')
-  
+
   const user = {
     email,
     name: email.split('@')[0], // Use part before @ as name
-    password: await hash(password, 12)
+    password: await hash(password, 12),
   }
 
   const existingUser = await db.collection('users').findOne({ email })
@@ -53,7 +53,7 @@ if (!email) {
   process.exit(1)
 }
 
-createUser(email).catch(error => {
+createUser(email).catch((error) => {
   console.error('Error creating user:', error)
   process.exit(1)
-}) 
+})

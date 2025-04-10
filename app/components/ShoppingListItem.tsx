@@ -25,28 +25,28 @@ export const ShoppingListItem: FC<ShoppingListItemProps> = ({ item, onUpdate, on
 
   if (isEditing) {
     return (
-      <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow">
+      <div className="flex items-center space-x-4 rounded-lg bg-white p-4 shadow">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="flex-1 px-3 py-2 border rounded-md"
+          className="flex-1 rounded-md border px-3 py-2"
         />
         <input
           type="number"
           value={quantity}
           onChange={(e) => setQuantity(Number(e.target.value))}
-          className="w-20 px-3 py-2 border rounded-md"
+          className="w-20 rounded-md border px-3 py-2"
         />
         <button
           onClick={handleUpdate}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
         >
           Save
         </button>
         <button
           onClick={() => setIsEditing(false)}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+          className="rounded-md bg-gray-500 px-4 py-2 text-white hover:bg-gray-600"
         >
           Cancel
         </button>
@@ -55,7 +55,7 @@ export const ShoppingListItem: FC<ShoppingListItemProps> = ({ item, onUpdate, on
   }
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow">
+    <div className="flex items-center justify-between rounded-lg bg-white p-4 shadow">
       <div className="flex items-center space-x-4">
         <span className="text-lg">{item.name}</span>
         <span className="text-gray-500">x{item.quantity}</span>
@@ -67,10 +67,7 @@ export const ShoppingListItem: FC<ShoppingListItemProps> = ({ item, onUpdate, on
         >
           Edit
         </button>
-        <button
-          onClick={handleDelete}
-          className="px-3 py-1 text-red-500 hover:text-red-600"
-        >
+        <button onClick={handleDelete} className="px-3 py-1 text-red-500 hover:text-red-600">
           Delete
         </button>
       </div>

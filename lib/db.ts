@@ -6,4 +6,4 @@ export async function getItemCollection(): Promise<Collection<Item>> {
   const client = await clientPromise
   const db = client.db('ShoppingList')
   return db.collection<Item>('Items')
-} 
+}

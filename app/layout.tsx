@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Header } from "./components/Header";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import { Header } from './components/Header'
 import { Toaster } from 'react-hot-toast'
 import { Providers } from './providers'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Shopping List",
-  description: "A simple shopping list app",
-};
+  title: 'Shopping List',
+  description: 'A simple shopping list app',
+}
 
 type RootLayoutProps = {
   children: React.ReactNode
@@ -23,9 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers>
           <div className="min-h-screen bg-gray-50">
             <Header />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-              {children}
-            </main>
+            <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</main>
           </div>
           <Toaster position="top-center" />
         </Providers>
