@@ -27,7 +27,7 @@ export const AddItemForm: FC<AddItemFormProps> = ({ onCreateItem }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mb-6 flex gap-4">
+    <form onSubmit={handleSubmit} className="mb-6 flex flex-col gap-4 sm:flex-row">
       <input
         type="text"
         value={name}
@@ -35,19 +35,21 @@ export const AddItemForm: FC<AddItemFormProps> = ({ onCreateItem }) => {
         placeholder="Item name"
         className="flex-1 rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <input
-        type="number"
-        value={quantity}
-        onChange={(e) => setQuantity(Number(e.target.value))}
-        min="1"
-        className="w-20 rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
-      <button
-        type="submit"
-        className="rounded-lg bg-blue-500 px-6 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        Add
-      </button>
+      <div className="flex gap-2">
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+          min="1"
+          className="w-24 rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          type="submit"
+          className="flex-shrink-0 rounded-lg bg-blue-500 px-6 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Add
+        </button>
+      </div>
     </form>
   )
 }

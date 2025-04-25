@@ -36,7 +36,7 @@
 
 ## Final Touches
 
-- [ ] Add responsive design
+- [x] Add responsive design
 - [ ] Add loading states
 - [ ] Add error handling
 - [ ] Add success/error notifications
