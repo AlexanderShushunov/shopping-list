@@ -20,7 +20,7 @@ async function createUser(email: string) {
     process.exit(1)
   }
 
-  const db = client.db()
+  const db = client.db('ShoppingList')
 
   // Generate a strong password (16 characters with mixed case, numbers, and symbols)
   const password = randomBytes(8).toString('hex')
