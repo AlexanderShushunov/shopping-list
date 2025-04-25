@@ -4,6 +4,6 @@ import { Item } from '@/types/item'
 
 export async function getItemCollection(): Promise<Collection<Item>> {
   const client = await clientPromise
-  const db = client.db('ShoppingList')
+  const db = client.db()
   return db.collection<Item>('Items')
 }

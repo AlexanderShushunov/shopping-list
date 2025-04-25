@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
         }
 
         const client = await clientPromise
-        const db = client.db('ShoppingList')
+        const db = client.db()
         const user = await db.collection('users').findOne({ email: credentials.email })
 
         if (!user) {
