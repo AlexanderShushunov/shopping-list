@@ -4,7 +4,7 @@ import { FC, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-export const LoginPage: FC = () => {
+const LoginPage: FC = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -26,7 +26,7 @@ export const LoginPage: FC = () => {
       } else {
         router.push('/')
       }
-    } catch (error) {
+    } catch {
       setError('An error occurred during login')
     }
   }
