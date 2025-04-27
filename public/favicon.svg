@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#4F46E5"/>
+  
+  <!-- Shopping cart -->
+  <path d="M384 192H160L128 96H96" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M160 192L192 352H352" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Cart wheels -->
+  <circle cx="160" cy="384" r="32" stroke="white" stroke-width="32"/>
+  <circle cx="352" cy="384" r="32" stroke="white" stroke-width="32"/>
+  
+  <!-- Cart handle -->
+  <path d="M96 96H128" stroke="white" stroke-width="32" stroke-linecap="round"/>
+</svg> 
