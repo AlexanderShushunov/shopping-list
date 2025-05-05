@@ -25,32 +25,77 @@ export const ShoppingListItem: FC<ShoppingListItemProps> = ({ item, onUpdate, on
 
   if (isEditing) {
     return (
-      <div className="flex flex-col gap-4 rounded-lg bg-white p-4 shadow sm:flex-row sm:items-center">
+      <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-4 shadow">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="flex-1 rounded-md border px-3 py-2"
+          className="mb-2 flex-1 rounded-md border px-3 py-2"
         />
-        <div className="flex items-center gap-2">
+        <div className="flex w-full items-center gap-2">
+          <button
+            type="button"
+            aria-label="Decrease quantity"
+            className="rounded border p-2 hover:bg-gray-100"
+            onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+          >
+            {/* Minus SVG icon - CC0 from SVGRepo */}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+          </button>
           <input
             type="number"
             value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
-            className="w-24 rounded-md border px-3 py-2"
+            min={1}
+            onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
+            className="w-14 flex-shrink-0 rounded-md border px-2 py-2 text-center"
           />
           <button
-            onClick={handleUpdate}
-            className="flex-shrink-0 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+            type="button"
+            aria-label="Increase quantity"
+            className="rounded border p-2 hover:bg-gray-100"
+            onClick={() => setQuantity((q) => q + 1)}
           >
-            Save
+            {/* Plus SVG icon - CC0 from SVGRepo */}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
           </button>
-          <button
-            onClick={() => setIsEditing(false)}
-            className="flex-shrink-0 rounded-md bg-gray-500 px-4 py-2 text-white hover:bg-gray-600"
-          >
-            Cancel
-          </button>
+          <div className="flex-grow" />
+          <div className="flex flex-grow gap-2">
+            <button
+              onClick={handleUpdate}
+              className="flex-grow rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600"
+            >
+              Save
+            </button>
+            <button
+              onClick={() => setIsEditing(false)}
+              className="flex-grow rounded-md bg-gray-500 py-2 text-white hover:bg-gray-600"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     )
