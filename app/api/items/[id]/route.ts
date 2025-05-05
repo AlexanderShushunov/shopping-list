@@ -5,10 +5,7 @@ import { Item } from '@/types/item'
 import { getItemCollection } from '@/lib/db'
 import { authOptions } from '@/lib/auth'
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const session = await getServerSession(authOptions)
 

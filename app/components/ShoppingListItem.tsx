@@ -57,23 +57,53 @@ export const ShoppingListItem: FC<ShoppingListItemProps> = ({ item, onUpdate, on
   }
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg bg-white p-4 shadow sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex items-center gap-4">
-        <span className="text-lg break-all">{item.name}</span>
-        <span className="text-gray-500 whitespace-nowrap">x{item.quantity}</span>
+    <div className="flex items-center justify-between gap-4 rounded-lg bg-white p-4 shadow">
+      <div className="flex min-w-0 items-center gap-2">
+        <span className="max-w-xs truncate break-all text-lg">{item.name}</span>
+        <span className="whitespace-nowrap text-gray-500">x{item.quantity}</span>
       </div>
       <div className="flex gap-2">
         <button
           onClick={() => setIsEditing(true)}
-          className="flex-1 rounded px-3 py-1 text-blue-500 hover:text-blue-600 sm:flex-none"
+          className="rounded p-2 text-blue-500 transition-colors hover:bg-blue-100"
+          aria-label="Edit"
         >
-          Edit
+          {/* Pencil SVG icon (edit) - CC0 from SVGRepo */}
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19.5 2 21l1.5-5L16.5 3.5z" />
+          </svg>
         </button>
-        <button 
-          onClick={handleDelete} 
-          className="flex-1 rounded px-3 py-1 text-red-500 hover:text-red-600 sm:flex-none"
+        <button
+          onClick={handleDelete}
+          className="rounded p-2 text-red-500 transition-colors hover:bg-red-100"
+          aria-label="Delete"
         >
-          Delete
+          {/* Trash SVG icon (delete) - CC0 from SVGRepo */}
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="3 6 5 6 21 6" />
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+            <line x1="10" y1="11" x2="10" y2="17" />
+            <line x1="14" y1="11" x2="14" y2="17" />
+          </svg>
         </button>
       </div>
     </div>

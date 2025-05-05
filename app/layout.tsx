@@ -10,20 +10,16 @@ export const metadata: Metadata = {
   title: 'Shopping List',
   description: 'A simple shopping list app',
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' }
-    ],
-    apple: [
-      { url: '/icon-192.png' }
-    ]
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/icon-192.png' }],
   },
   manifest: '/manifest.json',
   themeColor: '#4F46E5',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Shopping List'
-  }
+    title: 'Shopping List',
+  },
 }
 
 type RootLayoutProps = {
